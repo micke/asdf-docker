@@ -26,9 +26,9 @@ steps:
       keys:
         - v1-tools-cache-{{ checksum ".tool-versions" }}
 
-  - run: asdf plugin-add erlang || :
-  - run: asdf plugin-add elixir || :
-  - run: asdf plugin-add nodejs || :
+  - run: asdf plugin-add erlang || true
+  - run: asdf plugin-add elixir || true
+  - run: asdf plugin-add nodejs || true
   - run: bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
   - run: asdf install
 
