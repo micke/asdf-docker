@@ -30,7 +30,7 @@ steps:
   - run: asdf plugin-add elixir || true
   - run: asdf plugin-add nodejs || true
   - run: bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
-  - run: asdf install
+  - run: asdf install || true
 
   - save_cache:
       key: v1-tools-cache-{{ checksum ".tool-versions" }}
