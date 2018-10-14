@@ -34,5 +34,7 @@ steps:
 
   - save_cache:
       key: v1-tools-cache-{{ checksum ".tool-versions" }}
-      paths: "~/.asdf/plugins"
+      paths:
+        - "~/.asdf/plugins"
+        - "~/.asdf/installs"
 ```
