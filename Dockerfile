@@ -1,8 +1,8 @@
 FROM alpine
 
-RUN apk add bash git build-base automake autoconf readline-dev ncurses-dev \
-    openssl-dev yaml-dev libxslt-dev libffi-dev libtool unixodbc-dev \
-    openssh-client curl gnupg coreutils
+RUN apk --no-cache add bash git build-base automake autoconf readline-dev \
+    ncurses-dev openssl-dev yaml-dev libxslt-dev libffi-dev libtool \
+    unixodbc-dev openssh-client curl gnupg coreutils
 
 ENV DOCKERIZE_VERSION v0.6.1
 RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
