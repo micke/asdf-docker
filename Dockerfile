@@ -10,6 +10,8 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 COPY shasum /bin/shasum
+COPY asdf-install-plugins /bin/asdf-install-plugins
+COPY asdf-install-versions /bin/asdf-install-versions
 
 RUN adduser -D -s /bin/bash asdf
 

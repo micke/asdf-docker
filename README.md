@@ -1,5 +1,14 @@
 This docker container should work out of the box but I built it for use on circleci.
 
+I've included two utility binaries;
+
+1. `asdf-install-plugins` - Goes through your .tool-versions and installs the
+   plugin for each tool. Properly propagating exit codes so you can use it in a
+   CI build script.
+2. `asdf-install-versions` - Goes through your .tool-versions and installs the
+   missing tools for you. Properly propagating exit codes so you can use it in a
+   CI build script.
+
 # CircleCI
 CircleCI for some reason doesn't load the `~/.bashrc` file.  
 So it's important to point `BASH_ENV` to this file.
@@ -26,11 +35,8 @@ steps:
       keys:
         - v1-tools-cache-{{ checksum ".tool-versions" }}
 
-  - run: asdf plugin-add erlang || true
-  - run: asdf plugin-add elixir || true
-  - run: asdf plugin-add nodejs || true
-  - run: bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
-  - run: asdf install || true
+  - run: asdf-install-plugins
+  - run: asdf-install-versions
 
   - save_cache:
       key: v1-tools-cache-{{ checksum ".tool-versions" }}
