@@ -13,11 +13,7 @@ COPY shasum /bin/shasum
 COPY asdf-install-plugins /bin/asdf-install-plugins
 COPY asdf-install-versions /bin/asdf-install-versions
 
-RUN addgroup -S asdf && adduser -S -G asdf asdf 
-
-USER asdf
-
-WORKDIR /home/asdf
+WORKDIR ~/
 
 RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 RUN echo -e '\nsource $HOME/.asdf/asdf.sh' >> ~/.bashrc
