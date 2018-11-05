@@ -13,7 +13,7 @@ COPY shasum /bin/shasum
 COPY asdf-install-plugins /bin/asdf-install-plugins
 COPY asdf-install-versions /bin/asdf-install-versions
 
-RUN adduser -D -s /bin/bash asdf
+RUN addgroup -S asdf && adduser -S -G asdf asdf 
 
 USER asdf
 
